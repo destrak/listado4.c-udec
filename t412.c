@@ -1,29 +1,21 @@
-//solucion propia
+//solucion propia lo intente hacer manual pero nunca me daba asi que use fabs para omitir el caso negativo
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 int buscar(int n, double *v, double e){
-	double a = 0.000001;
-	int i, j=0;
-	double aux=0;
+	double a=0.000001;
+	int i;
+	int j;
+	int aux=0, aux2;
 	for( i=0; i <n; i++){
-		if(v[i]<=e){
-			v[j]=e-v[i];
-			j++;
+		if(fabs(v[i]-e)<a){
+			return i;
 		}
-		else if((e<=v[i])){
-			v[j]=v[i]-e;
-			j++;
-		}
-	}
-for(j=0; j<n; j++){		
-		if(v[j]<a);{
-		
-	}
-return j;
+			}		
+	return -1;
+
 }
 
-	return -1;
-}
 int main(int argc, char const *argv[])
 {
 	int n;
@@ -40,10 +32,7 @@ int main(int argc, char const *argv[])
 	}
 	int m;
 	m=buscar(n,v,e);
-	for(j=0; j<n; j++){		
-	printf("%lf\n", v[j]);
-}
-printf("en la posicion que se encuentra es %d\n", m);
+printf("en la posicion que se encuentra en el arreglo numero %d\n", m);
 
 	return 0;
 }
